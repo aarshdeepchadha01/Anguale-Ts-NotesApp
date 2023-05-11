@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Notes App</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .notes-container-wrapper {
+            position: relative;
+        }
+
+        .add-note-btn {
+            position: fixed;
+            top: 90px;
+            right: 350px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .notes-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .note-card {
+            position: relative;
+            z-index: 0;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+        }
+
+        .note-card::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .note-card:hover {
+            background-color: #f2f2f2;
+        }
+
+        .note-card h2 {
+            text-align: center;
+        }
+
+        .note-card p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 280px;
+        }
+
+        .note-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .note-icons a {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="notes-container-wrapper">
+        <div class="notes-container" *ngIf="notes.length > 0">
+            <div class="note-card" *ngFor="let note of notes">
+                <h2 *ngIf="note.id" [routerLink]="['/note', note.id]">{{note.title}}</h2>
+                <p>{{note.content}}</p>
+                <div class="note-icons">
+                    <a (click)="deleteNote(note.id)">
+                        <i class="fas fa-trash-alt fa-spin" style="color: #fa0000;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="note-card" *ngIf="notes.length === 0">
+            <h2>Time to take some notes!</h2>
+        </div>
+        <div class="add-note-btn" routerLink="/add-notes"><i class="fas fa-plus"></i></div>
+    </div>
+
+</body>
+
+</html>

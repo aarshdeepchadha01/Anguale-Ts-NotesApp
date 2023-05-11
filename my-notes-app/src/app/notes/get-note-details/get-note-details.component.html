@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <style>
+        .card-text {
+            padding: 0 150px;
+            position: relative;
+        }
+
+        .bold {
+            font-weight: bold;
+            font-size: 32px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            font-size: 25px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card text-center" *ngIf="note">
+        <div style="position: relative;">
+            <div class="card-header bold">
+                <div class="button-container">
+                    <a class="btn-btn-primary" (click)="showAllNotes()"><i class="fas fa-book"></i></a>
+                    <a (click)="editNote()">
+                        <i class="fas fa-edit" style="color: #050505;"></i>
+                    </a>
+
+                </div>
+                {{note.title}}
+            </div>
+
+            <div class="card-body">
+                <p class="card-text">{{note.content}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>

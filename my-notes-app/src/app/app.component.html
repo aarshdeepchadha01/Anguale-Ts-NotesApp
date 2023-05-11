@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notes App</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            height: 80px;
+            padding: 0 20px;
+        }
+
+        .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+
+        .note-card {
+            background-color: #F5F5F5;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #555;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav justify-content-center text-center" style="background-color:black; height: 50px;">
+        <li class="nav-item">
+            <a class="nav-link">Save your notes</a>
+        </li>
+    </ul>
+
+    <router-outlet></router-outlet>
+</body>
+
+</html>
